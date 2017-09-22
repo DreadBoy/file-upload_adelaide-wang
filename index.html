@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>File upload</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<style type="text/css">
+	:root {
+		--swatch1: #fff8f8;
+		--swatch2: #fa715d;
+		--swatch3: #fde2df;
+		--swatch4: #fea572;
+		--swatch5: #fdc4ad;
+		--swatch6: #fdd4d1;
+		font-family: 'Lato', sans-serif;
+        font-size: 14px;
+	}
+	img, .file-upload {
+		position: fixed;
+		left:  50%;
+		top:  50%;
+		transform: translate(-50%, -50%);
+	}
+	img {
+		opacity: 0.2;
+		z-index:  10;
+	}
+	.file-upload {
+		height: 500px;
+		width:  280px;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+    .file-upload:before {
+        content: '';
+        display: block;
+        position: absolute;
+        --size: 450px;
+        top: calc(337px - var(--size));
+        left: calc((var(--size) - 280px) / -2);
+        width: var(--size);
+        height: var(--size);
+        background: linear-gradient(to bottom, var(--swatch4) 0%, var(--swatch4) 40%,
+                                    var(--swatch2) 70%, var(--swatch2) 100%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+    }
+	.file-upload-cancel {
+		position: absolute;
+		bottom:  0;
+		width:  100%;
+		height: 42px;
+		border:  0;
+		margin:  0;
+		padding:  0;
+		/* https://gist.github.com/MoOx/9137295 */
+		color: white;
+		background: var(--swatch2);
+		font: inherit;
+		line-height: normal;
+		-webkit-font-smoothing: inherit;
+		-moz-osx-font-smoothing: inherit;
+		-webkit-appearance: none;
+	}
+    .file-upload-filename {
+        color: white;
+        text-align: center;
+        position: absolute;
+        top: 85px;
+        width: 100%;
+        font-size: 15px;
+    }
+</style>
+</head>
+<body>
+	<img src="demo.png">
+	<div class="file-upload">
+        <div class="file-upload-filename">design-image.png</div>
+		<button class="file-upload-cancel">Cancel</button>
+	</div>
+</body>
+</html>
